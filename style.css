@@ -7,20 +7,57 @@
 html{
     scroll-behavior: smooth;
 }
-
 body {
     padding: 0;
-    background-color: black;
+    margin: 0;
+    position: relative;
     color: white;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-image: url(resources/images/jeremy-thomas-E0AHdsENmDg-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(0px); /* Applies blur effect */
+    background-color: rgba(0, 0, 0, 0.9); /* Adds a dark overlay */
+    mix-blend-mode: darken; /* Ensures the overlay blends with the image */
+    z-index: -1; /* Sends the pseudo-element behind the content */
 }
 
 #header {
     height: 100vh;
     width: 100%;
-    background-image: url(resources/images/jeremy-thomas-E0AHdsENmDg-unsplash.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+}
+
+#header::before,
+#portfolio::before,
+#contact::before ,
+#about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0.6) 5%, 
+        rgba(0, 0, 0, 0.6) 40%, 
+        rgba(0, 0, 0, 0.6) 60%, 
+        rgba(0, 0, 0, 0.6) 95%); /* Spread the middle part over a larger area */
+    z-index: -1; /* Sends the pseudo-element behind the content */
+}
+
+#header, #portfolio, #contact {
+    position: relative; /* Ensures the pseudo-element is positioned correctly */
 }
 
 .container {
@@ -92,9 +129,26 @@ nav ul li a:hover::after {
 /* ----------about----------- */
 
 #about {
+    height: 80vh;
+    position: relative;
     padding: 80px 0;
-    color: rgb(179, 179, 179);
+    color: rgb(250, 250, 250);
 }
+
+/* #about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0) 5%, 
+        rgba(0, 0, 0, 0.6) 40%, 
+        rgba(0, 0, 0, 0.6) 60%, 
+        rgba(0, 0, 0, 0.125) 95%); /* Spread the middle part over a larger area */
+    z-index: -1; /* Sends the pseudo-element behind the content */
+} */
 
 .row {
     justify-content: space-between;
